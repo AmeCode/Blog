@@ -15,9 +15,9 @@ mongoose.connection.on('error',()=>console.log('error connecting to the database
 app.listen(port,()=>{
   console.log("connected on port "+port)
 });
-// app.use(express.static(path.join(__dirname,'public')));
+res.sendFile(path.join(__dirname, '../../../public', 'index1.html'));
 app.get('/*',(req,res)=>{
-  res.sendFile(path.join('public','index.html'))
+  res.sendFile(path.join('../../../public','index.html'))
 });
 app.use(cors());
 app.use(bodyparser.json());
