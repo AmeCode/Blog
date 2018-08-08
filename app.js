@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const users = require('./routes/users');
 const CircularJSON = require('circular-json');
 const app = express();
-const port = env.PORT || 8080;
+const port = 8080;
 mongoose.connect(config.database,{useNewUrlParser:true});
 mongoose.connection.on('connected',()=>console.log('connected to database!'));
 mongoose.connection.on('error',()=>console.log('error connecting to the database!!'));
