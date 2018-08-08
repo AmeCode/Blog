@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onRegisterSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+          <div *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched" class="alert alert-danger" role="alert">
+            Enter a valid Name!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control">
+          <div *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched" class="alert alert-danger" role="alert">
+            Enter a valid and unique Username !
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" class="form-control">
+          <div *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="alert alert-danger" role="alert">
+            Enter a valid Password !
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" formControlName="email" class="form-control">
+          <div *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="alert alert-danger" role="alert">
+            Enter a valid Email !
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
