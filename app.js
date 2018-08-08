@@ -17,7 +17,7 @@ app.listen(port,()=>{
 });
 
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'public/index.html'))
+  console.log(path.join(__dirname,'public/index.html'))
 });
 app.use(cors());
 app.use(bodyparser.json());
