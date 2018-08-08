@@ -18,12 +18,12 @@ export class AuthService {
     headers.append('content-type','application/json');
     /*HttpClient.get() applies res.json() automatically and returns Observable<HttpResponse<string>>.
      You no longer need to call .map(res=>res.json()) function yourself.*/
-    return this.http.post('users/register',user,{headers: headers});
+    return this.http.post('http://localhost:3000/users/register'||'/users/register',user,{headers: headers});
   }
   authenticateUser(user){
     let headers= new HttpHeaders();
     headers.append('content-type','application/json');
-    return this.http.post('users/authenticate',user,{headers: headers});
+    return this.http.post('http://localhost:3000/users/authenticate'||'users/authenticate',user,{headers: headers});
   }
   storeUserData(token,user){
     localStorage.setItem('id_token',token);
@@ -38,11 +38,9 @@ export class AuthService {
   }
   getProfile(){
     this.loadToken();
-    let headers= new HttpHeaders({
-      'Authorization':this.authToken,
-      'Content-Type':'application/json'
-    });
-    return this.http.get('users/profile',{headers: headers});
+    let headers= new HttpHeaders({"Authorization":this.authToken});
+
+    return this.http.get('http://localhost:3000/users/profile'||'users/profile',{headers: headers});
   }
   loadToken(){
     const Token=localStorage.getItem('id_token');

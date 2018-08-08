@@ -16,9 +16,12 @@ app.listen(port,()=>{
   console.log("connected on port "+port)
 });
 app.use(express.static(path.join(__dirname, './public')));
-app.get('/*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'./public','index.html'))
+app.use((req,res)=>{
+  res.redirect('/')
 });
+/*app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'./public','index.html'))
+});*/
 app.use(cors());
 app.use(bodyparser.json());
 app.use('/users',users);

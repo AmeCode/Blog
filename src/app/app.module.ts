@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AuthGuard} from "./guards/auth.guard";
 
 
+
 const appRoutes:Routes=[
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
