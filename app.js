@@ -15,7 +15,7 @@ mongoose.connection.on('error',()=>console.log('error connecting to the database
 app.listen(port,()=>{
   console.log("connected on port "+port)
 });
-res.sendFile(path.join(__dirname, '../../../public', 'index1.html'));
+app.use(express.static(path.join(__dirname, '../../../public')));
 app.get('/*',(req,res)=>{
   res.sendFile(path.join('../../../public','index.html'))
 });
